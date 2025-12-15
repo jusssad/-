@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Результаты</title>
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+<div class="container">
+<h2>Результат теста</h2>
+<div id="out"></div>
+<button onclick="location.href='history.html'">К истории</button>
+</div>
+
+<script src="../../js/storage.js"></script>
+<script src="questions.js"></script>
+<script>
+const id=new URLSearchParams(location.search).get("id");
+const a=getAttempt("dbms",id);
+const out=document.getElementById("out");
+
+QUESTIONS.forEach((q,i)=>{
+  const d=a.detailed[q.id];
+  let status='';
+  if(d.skipped) status='<span class="bad">Ответ не дан</span>';
+  else status=d.correct?'<span class="good">Верно</span>':'<span class="bad">Неверно</span>';
+
+  out.innerHTML+=`
+  <div class="card-box">
+    <b>${i+1}. ${q.question[0]}</b><br>
+    ${status}<br>
+    Правильный ответ: <b>${q.options[q.correct]}</b>
+    <div class="explanation">${q.explanation}</div>
+  </div>`;
+});
+</script>
+</body>
+</html>

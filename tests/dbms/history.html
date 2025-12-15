@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>История</title>
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+<div class="container">
+<h2>История попыток</h2>
+<div id="list"></div>
+<button onclick="location.href='test.html'">Пройти снова</button>
+</div>
+<script src="../../js/storage.js"></script>
+<script>
+const list=document.getElementById("list");
+loadAttempts("dbms").forEach(a=>{
+  const d=new Date(a.date).toLocaleString();
+  list.innerHTML+=`
+  <div class="card-box">
+    <b>${d}</b><br>
+    Результат: ${a.score}/${a.total}<br>
+    <button onclick="location.href='results.html?id=${a.id}'">Разбор</button>
+  </div>`;
+});
+</script>
+</body>
+</html>
