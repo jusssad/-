@@ -1,14 +1,41 @@
-
 <!DOCTYPE html>
-<html lang="ru"><head>
-<meta charset="UTF-8">
-<title>Экзаменационная платформа</title>
-<link rel="stylesheet" href="css/style.css">
-</head><body>
-<div class="container">
-<h1>Экзаменационная платформа</h1>
-<div class="card-box" onclick="location.href='tests/dbms/test.html'">
-<h2>СУБД</h2><p>Открыть тест</p>
-</div>
-</div>
-</body></html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Exam Platform</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Exam Platform</h1>
+
+    <div class="card">
+      <h2>СУБД</h2>
+      <div class="actions-row">
+        <button onclick="openTest('dbms')">Начать / продолжить</button>
+        <button class="secondary" onclick="openHistory('dbms')">История</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>JAVA / ООП</h2>
+      <div class="actions-row">
+        <button onclick="openTest('java')">Начать / продолжить</button>
+        <button class="secondary" onclick="openHistory('java')">История</button>
+      </div>
+    </div>
+
+    <!-- ДОБАВЛЕННЫЙ БЛОК PYTHON -->
+    <div class="card">
+      <h2>Python</h2>
+      <div class="actions-row">
+        <button onclick="openTest('python')">Начать / продолжить</button>
+        <button class="secondary" onclick="openHistory('python')">История</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/menu.js"></script>
+</body>
+</html>
